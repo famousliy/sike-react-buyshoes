@@ -1,13 +1,13 @@
 const React = require("react");
-const CartStore = require("../stores/CartStore");
+const actions = require("../stores/actions");
 
 let QuantityControl = React.createClass({
   onClickMinus(id,quantity) {
-    quantity > 1 && CartStore.updateCartItemQuantity(id,quantity - 1);
+    quantity > 1 && actions.updateCartItemQuantity(id,quantity - 1);
   },
 
   onClickPlus(id,quantity) {
-    CartStore.updateCartItemQuantity(id,quantity + 1);
+    actions.updateCartItemQuantity(id,quantity + 1);
   },
   render() {
     let {variant} = this.props;

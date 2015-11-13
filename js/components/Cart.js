@@ -4,14 +4,16 @@ const CartStore = require('../stores/CartStore');
 const ProductStore = require('../stores/ProductStore');
 const connect = require("./connect");
 const QuantityControl = require("./QuantityControl");
-const {removeCartItem} = CartStore;
+const actions = require("../stores/actions");
 
 let Cart = React.createClass({
   componentDidMount() {
     let {$content} = this.refs;
     Ps.initialize($content);
   },
-
+  undo() {
+    actions.undoShoppingCart();
+  },
   renderCartItems() {
     let {cartItems,products} = this.props;
     return Object.keys(cartItems).map(key => {
@@ -30,6 +32,7 @@ let Cart = React.createClass({
           {this.renderCartItems()}
 
         </div> {/* cart-item */}
+        <h3 className="cart__undo"><a onClick={this.undo}>undo</a></h3>
       </div>
     );
   }
@@ -37,7 +40,7 @@ let Cart = React.createClass({
 
 let CartItem = React.createClass({
   onClick(id) {
-    removeCartItem(id);
+    actions.removeCartItem(id);
   },
   render: function() {
     let {item,products} = this.props;

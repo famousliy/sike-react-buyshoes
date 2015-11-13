@@ -1,15 +1,15 @@
 const React = require("react");
 const QuantityControl = require("./QuantityControl");
 const CartStore = require("../stores/CartStore");
-const {addCartItem} = CartStore;
 const LikeStore = require('../stores/LikeStore');
 const ProductStore = require('../stores/ProductStore');
 const connect = require("./connect");
 const {clickLikeItem} = LikeStore;
+const actions = require("../stores/actions");
 
 let Product = React.createClass({
   onClick(id) {
-    CartStore.addCartItem(id);
+    actions.addCartItem(id);
   },
   onLike(id) {
     LikeStore.clickLikeItem(id);

@@ -338,6 +338,14 @@ a:hover {
 .cart-item__trash {
 }
 
+.cart__undo {
+  position: absolute;
+  top: 0; right: 0;
+  padding: 15px 0;
+  justify-content: center;
+  z-index: 20;
+}
+
 .adjust-qty {
   flex-direction: row;
   align-items: center;

@@ -875,6 +875,17 @@ a:hover {
 .cart-item__trash {
 }
 
+.cart__undo {
+  position: absolute;
+  top: 0; right: 0;
+  padding: 15px 0;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 20;
+}
+
 .adjust-qty {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
